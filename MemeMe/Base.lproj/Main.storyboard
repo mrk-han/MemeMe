@@ -19,7 +19,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ge5-bm-Yqf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <navigationItem id="y8y-ca-tVb">
+                                    <navigationItem title="MemeMe" id="y8y-ca-tVb">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="jTo-Yh-cHO">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5yT-Cn-lvM" userLabel="Share Button">
                                                 <rect key="frame" x="16" y="5" width="75" height="34.5"/>
@@ -59,8 +59,16 @@
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nyc-ag-vFf"/>
-                                    <barButtonItem title="Camera" image="camera" catalog="system" id="Ot3-fR-yfg"/>
-                                    <barButtonItem title="Album" id="T19-N7-2WE" userLabel="Album"/>
+                                    <barButtonItem title="Camera" image="camera" catalog="system" id="Ot3-fR-yfg">
+                                        <connections>
+                                            <action selector="takeAnImage:" destination="BYZ-38-t0r" id="rMJ-S3-zWc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Album" id="T19-N7-2WE" userLabel="Album">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="3Cr-7G-DvZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1m7-6T-QFm"/>
                                 </items>
                             </toolbar>
@@ -89,7 +97,7 @@
                         <outlet property="bottomTextField" destination="2qO-NZ-J3E" id="Gtu-UR-mV1"/>
                         <outlet property="cameraButton" destination="Ot3-fR-yfg" id="oJB-ah-R1T"/>
                         <outlet property="cancelButton" destination="A4x-O6-jzK" id="Q8S-rB-euR"/>
-                        <outlet property="imageView" destination="bm3-9z-OeL" id="vBi-D7-mS5"/>
+                        <outlet property="originalImageView" destination="bm3-9z-OeL" id="5fk-WY-G5W"/>
                         <outlet property="shareButton" destination="jTo-Yh-cHO" id="lIO-4Q-d3h"/>
                         <outlet property="topTextField" destination="Msn-Ea-dr8" id="k8f-KZ-Q4o"/>
                     </connections>
