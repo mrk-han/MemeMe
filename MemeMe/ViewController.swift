@@ -9,14 +9,41 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
+    // Meme View
     @IBOutlet var topTextField: UITextField!
     @IBOutlet var bottomTextField: UITextField!
     @IBOutlet var imageView: UIImageView!
     
+    // Top Navbar
+    @IBOutlet var shareButton: UIBarButtonItem!
+    @IBOutlet var cancelButton: UIBarButtonItem!
+    
+    // Bottom Toolbar
+    @IBOutlet var albumButton: UIBarButtonItem!
+    @IBOutlet var cameraButton: UIBarButtonItem!
+    
+    // Variables
+    
+    let memeTextAttributes: [NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.strokeColor: UIColor.black,
+        NSAttributedString.Key.strokeWidth: CGFloat(4),
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedString.Key.backgroundColor: UIColor.white
+    ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.text = "TOP TEXT"
+        bottomTextField.text = "BOTTOM TEXT"
     }
     
     // MARK: Saving Meme
@@ -56,6 +83,9 @@ class ViewController: UIViewController {
        - call save meme in handler
      - dismiss activity view
      */
+    
+    
+    
     
 }
 
