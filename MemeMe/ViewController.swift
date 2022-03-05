@@ -51,7 +51,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         subscribeToKeyboardNotifications()
         subscribeToKeyboardHidingNotifications()
-        let yOrigin: CGFloat = originalImageView.frame.origin.y
     }
     
     override func viewWillDisappear(_ animated: Bool) {
