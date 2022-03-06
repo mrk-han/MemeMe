@@ -18,6 +18,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var shareButton: UIBarButtonItem!
     @IBOutlet var cancelButton: UIBarButtonItem!
     
+    @IBOutlet var navBar: UINavigationBar!
+    @IBOutlet var toolBar: UIToolbar!
+    
+    
     // Bottom Toolbar
     @IBOutlet var albumButton: UIBarButtonItem!
     @IBOutlet var cameraButton: UIBarButtonItem!
@@ -26,10 +30,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.strokeWidth: CGFloat(4),
+        NSAttributedString.Key.strokeWidth: CGFloat(4.5),
         NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.backgroundColor: UIColor.white
+        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
     ]
     
     
@@ -45,6 +48,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.defaultTextAttributes = memeTextAttributes
         topTextField.text = "TOP TEXT"
         bottomTextField.text = "BOTTOM TEXT"
+        topTextField.backgroundColor = .clear
+        bottomTextField.backgroundColor = .clear
         
         // Disable camera button if no camera
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
@@ -69,6 +74,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func generateMemedImage() -> UIImage {
         
         // TODO: Hide toolbar and navbar
+        self.toolBar.isHidden = true
+        self.navBar.isHidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -76,7 +83,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        // TODO: Show toolbar and navbar
+        self.toolBar.isHidden = false
+        self.navBar.isHidden = false
         
         return memedImage
     }
@@ -85,6 +93,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // TODO: Enable/Disable Share if user has meme or
     
+    @IBAction func shareMeme(_ sender: Any) {
+        let generatedMeme = generateMemedImage()
+        let activityViewController = UIActivityViewController(activityItems: [generatedMeme], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+        print("qwiuerh")
+    
+    }
     /*
      Share func IBACTION probably:
      
