@@ -15,7 +15,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var originalImageView: UIImageView!
     
     // Top Navbar
-    @IBOutlet var shareButton: UIBarButtonItem!
     @IBOutlet var cancelButton: UIBarButtonItem!
     
     @IBOutlet var navBar: UINavigationBar!
@@ -67,12 +66,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         unsubscribeFromKeyboardHidingNotifications()
     }
     
-    // MARK: Saving + Generating the Meme
-    
-    func save() {
-        // Create the meme
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: originalImageView.image!, memedImage: generateMemedImage())
-    }
+    // MARK: Sharing + Generating the Meme
     
     func generateMemedImage() -> UIImage {
         
