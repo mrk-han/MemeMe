@@ -9,19 +9,17 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // Top Navbar
+    @IBOutlet var navBar: UINavigationBar!
+    @IBOutlet var cancelButton: UIBarButtonItem!
+    
     // Meme View
     @IBOutlet var topTextField: UITextField!
     @IBOutlet var bottomTextField: UITextField!
     @IBOutlet var originalImageView: UIImageView!
     
-    // Top Navbar
-    @IBOutlet var cancelButton: UIBarButtonItem!
-    
-    @IBOutlet var navBar: UINavigationBar!
-    @IBOutlet var toolBar: UIToolbar!
-    
-    
     // Bottom Toolbar
+    @IBOutlet var toolBar: UIToolbar!
     @IBOutlet var albumButton: UIBarButtonItem!
     @IBOutlet var cameraButton: UIBarButtonItem!
     
@@ -33,7 +31,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
     ]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +107,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    
     // MARK: Pick an Image from Album
     
     @IBAction func pickAnImage(_ sender: Any) {
@@ -131,7 +127,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: Take an Image from Camera
+    // MARK: Use a picture from the camera
     
     @IBAction func takeAnImage(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -176,7 +172,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func unsubscribeFromKeyboardHidingNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
     
 }
