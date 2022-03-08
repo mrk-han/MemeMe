@@ -94,29 +94,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: Sharing Meme
     
-    // TODO: Enable/Disable Share if user has meme or
-    
     @IBAction func shareMeme(_ sender: Any) {
         let generatedMeme = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [generatedMeme], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
-        print("qwiuerh")
-    
+        self.cancelButton.isEnabled = true
     }
-    /*
-     Share func IBACTION probably:
-     
-     - generate a memed image
-     - define an instance of the ActivityViewController
-     - pass the ActivityViewController a memedImage as an activity item
-     - present the ActivityViewController
-     - call completionWithItemsHandler from UIActivityViewController class
-     - call save meme in handler
-     - dismiss activity view
-     */
+    
+    
+    @IBAction func clearTemplate(_ sender: Any) {
+        self.viewWillAppear(true)
+        self.originalImageView.image = nil
+        
+    }
+    
     
     // MARK: Pick an Image from Album
-    
     
     @IBAction func pickAnImage(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -165,7 +158,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
-    
     func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     }
@@ -184,8 +176,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
-    
-    
-    
     
 }
