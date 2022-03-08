@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.strokeWidth: CGFloat(4.5),
+        NSAttributedString.Key.strokeWidth: CGFloat(-3.0),
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
     ]
@@ -45,10 +45,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillAppear(animated)
         // Format
         topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
         topTextField.text = "TOP TEXT"
-        bottomTextField.text = "BOTTOM TEXT"
+        topTextField.autocapitalizationType = .allCharacters
         topTextField.backgroundColor = .clear
+        
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.text = "BOTTOM TEXT"
+        bottomTextField.autocapitalizationType = .allCharacters
         bottomTextField.backgroundColor = .clear
         
         // Disable camera button if no camera
