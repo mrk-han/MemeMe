@@ -103,7 +103,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func clearTemplate(_ sender: Any) {
-        self.viewWillAppear(true)
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.text = "TOP TEXT"
+        topTextField.autocapitalizationType = .allCharacters
+        topTextField.backgroundColor = .clear
+        
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.text = "BOTTOM TEXT"
+        bottomTextField.autocapitalizationType = .allCharacters
+        bottomTextField.backgroundColor = .clear
         self.originalImageView.image = nil
         
     }
