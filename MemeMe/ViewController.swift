@@ -74,7 +74,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage {
         
-        // TODO: Hide toolbar and navbar
         self.toolBar.isHidden = true
         self.navBar.isHidden = true
         

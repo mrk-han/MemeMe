@@ -46,18 +46,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="y8y-ca-tVb">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" changesSelectionAsPrimaryAction="YES" id="jTo-Yh-cHO">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5yT-Cn-lvM" userLabel="Share Button">
-                                                <rect key="frame" x="16" y="5" width="75" height="34.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" image="square.and.arrow.up" catalog="system" imageContentMode="scaleAspectFit"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="shareMeme:" destination="BYZ-38-t0r" eventType="touchUpInside" id="30O-eS-xzK"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="action" changesSelectionAsPrimaryAction="YES" id="jTo-Yh-cHO">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="Ov3-eI-Y0J"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="A4x-O6-jzK" userLabel="Clear Button">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="SvR-JQ-JgD" userLabel="Clear">
@@ -120,7 +112,6 @@
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
