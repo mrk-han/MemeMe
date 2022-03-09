@@ -60,6 +60,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.defaultTextAttributes = memeTextAttributes
         textField.autocapitalizationType = .allCharacters
         textField.backgroundColor = .clear
+        textField.textAlignment = .center
         textField.text = text
     }
     
