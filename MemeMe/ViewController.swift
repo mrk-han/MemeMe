@@ -94,8 +94,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func shareMeme(_ sender: Any) {
         let generatedMeme = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [generatedMeme], applicationActivities: nil)
+        
+        activityViewController.completionWithItemsHandler = { activity, completed, items, error in
+            if completed {
+                self.save()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
         present(activityViewController, animated: true, completion: nil)
-        self.cancelButton.isEnabled = true
     }
     
     
