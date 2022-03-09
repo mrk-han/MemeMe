@@ -56,6 +56,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         unsubscribeFromKeyboardHidingNotifications()
     }
     
+    /*
+     https://kaushalelsewhere.medium.com/how-to-dismiss-keyboard-in-a-view-controller-of-ios-3b1bfe973ad1
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
     func setupTextfield(textField: UITextField, text: String) {
         textField.defaultTextAttributes = memeTextAttributes
         textField.autocapitalizationType = .allCharacters
