@@ -89,7 +89,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
-    // MARK: Sharing Meme
+    // MARK: Sharing Meme + Clearing Template
     
     @IBAction func shareMeme(_ sender: Any) {
         let generatedMeme = generateMemedImage()
@@ -105,7 +105,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(activityViewController, animated: true, completion: nil)
     }
     
-    
     @IBAction func clearTemplate(_ sender: Any) {
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.text = "TOP TEXT"
@@ -120,12 +119,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    // MARK: Pick an Image from Album
+    // MARK: Choosing an image
     
     @IBAction func pickAnImage(_ sender: Any) {
+        chooseImageFromCameraOrLibrary(source: .photoLibrary)
+    }
+    
+    func chooseImageFromCameraOrLibrary(source: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = source
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -140,13 +144,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: Use a picture from the camera
-    
     @IBAction func takeAnImage(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        chooseImageFromCameraOrLibrary(source: .camera)
     }
     
     // MARK: Keyboard Adjustments
