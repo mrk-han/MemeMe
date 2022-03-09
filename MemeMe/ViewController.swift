@@ -155,7 +155,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // so the imageview is not covered by the keyboard
     @objc func keyboardWillShow(_ notification: Notification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     func subscribeToKeyboardNotifications() {
@@ -169,7 +171,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: Move view down when Hiding Keyboard
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        view.frame.origin.y = 0
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = 0
+        }
     }
     
     func subscribeToKeyboardHidingNotifications() {
