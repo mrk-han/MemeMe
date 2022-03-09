@@ -40,15 +40,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Format
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.text = "TOP TEXT"
-        topTextField.autocapitalizationType = .allCharacters
-        topTextField.backgroundColor = .clear
-        
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.text = "BOTTOM TEXT"
-        bottomTextField.autocapitalizationType = .allCharacters
-        bottomTextField.backgroundColor = .clear
+        setupTextfield(textField: topTextField, text: "TOP TEXT")
+        setupTextfield(textField: bottomTextField, text: "BOTTOM TEXT")
         
         // Disable camera button if no camera
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
@@ -63,7 +56,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         unsubscribeFromKeyboardHidingNotifications()
     }
     
+    func setupTextfield(textField: UITextField, text: String) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.autocapitalizationType = .allCharacters
+        textField.backgroundColor = .clear
+        textField.text = text
+    }
+    
     // MARK: Sharing + Generating the Meme
+    
+    func save() {
+        // Create the meme
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: originalImageView.image!, memedImage: generateMemedImage())
+        print("Save Details: \(meme)")
+    }
     
     func generateMemedImage() -> UIImage {
         
