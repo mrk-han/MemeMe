@@ -8,13 +8,15 @@
 import Foundation
 import UIKit
 
-class TableViewController: UIViewController {
+class SentMemesCollectionViewController: UIViewController {
     
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
+    
+    var flowLayout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
